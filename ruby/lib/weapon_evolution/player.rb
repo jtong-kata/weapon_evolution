@@ -12,15 +12,6 @@ class Player
    enemy.be_beaten self
  end
 
- def beat_old enemy
-   enemy.hp -= self.attack_point
-   if enemy.hp > 0
-     enemy.beat self
-   else
-     "#{enemy.name}被打败了"
-   end
- end
-
  protected
  def be_beaten enemy
    @hp -= enemy.attack_point
