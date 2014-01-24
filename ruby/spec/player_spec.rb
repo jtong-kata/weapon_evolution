@@ -1,4 +1,4 @@
-require 'weapon_evolution/player'
+require 'weapon_evolution'
 
 describe "Player" do
   let(:zhangsan) { Player.new name: "张三", hp: 10, attack_point: 8 }
@@ -9,7 +9,5 @@ describe "Player" do
     expect(zhangsan.name).to eq "张三"
   end
 
-  it "should beat each other until dead" do
-    lisi.beat(zhangsan).should eq "张三被打败了"
-  end
+
 end
