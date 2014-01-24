@@ -13,24 +13,10 @@ class Player
 
 
 
- def beat enemy
-   enemy.be_beaten_by self
- end
-
- protected
- def be_beaten_by enemy
-   @hp -= enemy.attack_point
-   if hp >0
-     beat enemy
-   else
-     "#{name}被打败了"
-   end
- end
-
   def be_attacked_by enemy
     @hp -= enemy.attack_point
     if hp > 0
-      "#{enemy.name}攻击了#{name},#{name}受到了#{enemy.attack_point}点伤害,张三剩余生命：#{@hp}"
+      "#{enemy.name}攻击了#{name},#{name}受到了#{enemy.attack_point}点伤害,#{name}剩余生命：#{@hp}"
     else
       "#{name}被打败了"
     end

@@ -1,2 +1,3 @@
-Dir["../lib/*.rb"].each { |f| require f }
-Dir["../lib/weapon_evolution/*.rb"].each { |f| require f }
+RSpec.configure do |config|
+  config.mock_with :flexmock
+end
