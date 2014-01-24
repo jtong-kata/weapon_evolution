@@ -9,11 +9,11 @@ class Player
 
 
  def beat enemy
-   enemy.be_beaten self
+   enemy.be_beaten_by self
  end
 
  protected
- def be_beaten enemy
+ def be_beaten_by enemy
    @hp -= enemy.attack_point
    if hp >0
      beat enemy
