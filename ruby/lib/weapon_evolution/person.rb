@@ -7,6 +7,10 @@ class Person
     end
   end
 
+  def job
+    "普通人"
+  end
+
   def attack enemy
     enemy.be_attacked_by self
   end
@@ -15,7 +19,7 @@ class Person
   def be_attacked_by enemy
     @hp -= enemy.attack_point
     if hp > 0
-      "#{enemy.name}攻击了#{name},#{name}受到了#{enemy.attack_point}点伤害,#{name}剩余生命：#{@hp}"
+      "#{enemy.job}#{enemy.name}攻击了#{job}#{name},#{name}受到了#{enemy.attack_point}点伤害,#{name}剩余生命：#{@hp}"
     else
       "#{name}被打败了"
     end
