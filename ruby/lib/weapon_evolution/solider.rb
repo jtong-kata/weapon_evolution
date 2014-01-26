@@ -6,7 +6,8 @@ class Solider < Person
   end
 
   def attack_point
-    @attack_point + weapon.attack_point
+    @attack_point +
+        (weapon.nil? ? 0 : weapon.attack_point)
   end
 
   def defence_point

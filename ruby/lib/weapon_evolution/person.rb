@@ -36,7 +36,8 @@ class Person
 
   protected
   def build_formatted_attack_string(enemy, harm_point)
-    "#{enemy.job}#{enemy.name}#{"用"+ enemy.weapon.name if defined? enemy.weapon}" <<
+    "#{enemy.job}#{enemy.name}" <<
+        "#{"用"+ enemy.weapon.name if defined?(enemy.weapon) && !enemy.weapon.nil?}" <<
         "攻击了#{job}#{name},#{name}受到了#{harm_point}点伤害,#{name}剩余生命：#{@hp}"
   end
 
