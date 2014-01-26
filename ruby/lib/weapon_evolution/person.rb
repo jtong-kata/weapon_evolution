@@ -1,5 +1,5 @@
 class Person
-  attr_accessor :name, :hp, :attack_point
+  attr_accessor :name, :hp, :attack_point, :effect, :effect_round_left
 
   def initialize args = {}
     args.each do |key, value|
@@ -12,7 +12,16 @@ class Person
   end
 
   def attack enemy
-    enemy.be_attacked_by self
+    if effect == "眩晕"
+      @effect_round_left -= 1
+      result = "#{@name}晕倒了，无法攻击, 眩晕还剩：#{ @effect_round_left }轮"
+      if effect_round_left <= 0
+        @effect = nil
+      end
+    else
+      result = enemy.be_attacked_by self
+    end
+    result
   end
 
   def defence_point
@@ -25,7 +34,7 @@ class Person
     @hp -= harm_point
     result = build_formatted_attack_string(enemy, harm_point)
     if hp <= 0
-      result << "\n#{name}被打败了"
+      result << "\n#{@name}被打败了"
     end
     result
   end
@@ -38,7 +47,7 @@ class Person
   def build_formatted_attack_string(enemy, harm_point)
     "#{enemy.job}#{enemy.name}" <<
         "#{"用"+ enemy.weapon.name if defined?(enemy.weapon) && !enemy.weapon.nil?}" <<
-        "攻击了#{job}#{name},#{name}受到了#{harm_point}点伤害,#{name}剩余生命：#{@hp}"
+        "攻击了#{job}#{@name},#{@name}受到了#{harm_point}点伤害,#{@name}剩余生命：#{@hp}"
   end
 
 end
