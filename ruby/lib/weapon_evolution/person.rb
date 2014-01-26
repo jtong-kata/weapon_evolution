@@ -5,6 +5,7 @@ class Person
     args.each do |key, value|
       self.instance_variable_set("@#{key}", value) unless value.nil?
     end
+    @effect_harm = 2
   end
 
   def job
@@ -12,12 +13,17 @@ class Person
   end
 
   def attack enemy
+
     if effect == "眩晕"
       @effect_round_left -= 1
       result = "#{@name}晕倒了，无法攻击, 眩晕还剩：#{ @effect_round_left }轮"
       if effect_round_left <= 0
         @effect = nil
       end
+    elsif effect == "中毒"
+      @hp -= @effect_harm
+      result = "#{@name}受到#{@effect_harm}点毒性伤害, #{@name}剩余生命：#{@hp}\n"
+      result << enemy.be_attacked_by(self)
     else
       result = enemy.be_attacked_by self
     end
