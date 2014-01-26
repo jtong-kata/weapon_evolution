@@ -11,6 +11,7 @@ class Solider < Person
   end
 
   def defence_point
-    @defence_point + armor.defence_point
+    @defence_point +
+        (armor.nil? ? 0 : armor.defence_point)
   end
 end

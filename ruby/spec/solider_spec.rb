@@ -12,6 +12,8 @@ describe "Solider" do
 
   let(:solider_with_no_weapon) { Solider.new name: "李四", hp: 20, attack_point: 9, defence_point: 2, armor: good_leather_armour }
 
+  let(:solider_with_no_armor) { Solider.new name: "李四", hp: 20, attack_point: 9, defence_point: 2 }
+
   it "should return formated result when attack " do
     solider.attack(person).should eq "战士李四用优质木棍攻击了普通人张三,张三受到了12点伤害,张三剩余生命：8"
   end
@@ -24,4 +26,7 @@ describe "Solider" do
     solider_with_no_weapon.attack(person).should eq "战士李四攻击了普通人张三,张三受到了9点伤害,张三剩余生命：11"
   end
 
+  it "should not reduce harm when solider has no armor" do
+    person.attack(solider_with_no_armor).should eq "普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：14"
+  end
 end
