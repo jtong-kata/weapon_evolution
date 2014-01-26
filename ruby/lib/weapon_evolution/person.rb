@@ -15,14 +15,24 @@ class Person
     enemy.be_attacked_by self
   end
 
+  def defence_point
+    0
+  end
+
 
   def be_attacked_by enemy
-    @hp -= enemy.attack_point
-    if hp > 0
-      "#{enemy.job}#{enemy.name}攻击了#{job}#{name},#{name}受到了#{enemy.attack_point}点伤害,#{name}剩余生命：#{@hp}"
-    else
-      "#{name}被打败了"
+    @hp -= enemy.attack_point - defence_point
+    result = build_formatted_attack_string(enemy)
+    if hp <= 0
+      result << "\n#{name}被打败了"
     end
+    result
+  end
+
+  protected
+  def build_formatted_attack_string(enemy)
+    "#{enemy.job}#{enemy.name}#{"用"+ enemy.weapon.name if defined? enemy.weapon}" <<
+        "攻击了#{job}#{name},#{name}受到了#{enemy.attack_point}点伤害,#{name}剩余生命：#{@hp}"
   end
 
 end

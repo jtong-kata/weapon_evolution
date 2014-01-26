@@ -17,7 +17,7 @@ describe "Person" do
   it "should return final result when someone has been dead" do
     lisi.attack(zhangsan)
     final_result = lisi.attack(zhangsan)
-    final_result.should eq "张三被打败了"
+    final_result.should eq "普通人李四攻击了普通人张三,张三受到了9点伤害,张三剩余生命：-8\n张三被打败了"
   end
 
 end
