@@ -1,5 +1,7 @@
 require "weapon_evolution/version"
-require "weapon_evolution/effect"
+require "weapon_evolution/effect/normal"
+require "weapon_evolution/effect/faint"
+require "weapon_evolution/effect/poison"
 require "weapon_evolution/person"
 require "weapon_evolution/weapon"
 require "weapon_evolution/armor"
