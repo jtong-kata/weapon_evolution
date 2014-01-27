@@ -1,5 +1,5 @@
 class Faint
-  attr_accessor :effect_round_left, :is_on
+  attr_accessor :effect_round_left
 
   def initialize args = {}
     args.each do |key, value|
@@ -11,7 +11,7 @@ class Faint
   def calculate player, &block
     @effect_round_left -= 1
     if effect_round_left <= 0
-      @is_on = false
+      player.to_normal
     end
     "#{player.name}晕倒了，无法攻击, 眩晕还剩：#{ @effect_round_left }轮"
   end

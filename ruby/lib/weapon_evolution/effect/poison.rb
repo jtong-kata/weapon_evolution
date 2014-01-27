@@ -1,11 +1,10 @@
 class Poison
-  attr_accessor :effect_harm , :is_on
+  attr_accessor :effect_harm
 
   def initialize args = {}
     args.each do |key, value|
       self.instance_variable_set("@#{key}", value) unless value.nil?
     end
-    @is_on = true
     @effect_harm = 2
   end
 

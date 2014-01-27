@@ -14,10 +14,6 @@ class Person
   end
 
   def attack enemy
-    if not @effect.is_on
-      @effect= @normal_effect
-    end
-
     @effect.calculate self do
       enemy.be_attacked_by self
     end
