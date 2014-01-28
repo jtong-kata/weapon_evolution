@@ -14,7 +14,7 @@ class Person
   end
 
   def attack enemy
-    @effect.calculate self do
+    @effect.calculate self, enemy do
       enemy.be_attacked_by self
     end
   end

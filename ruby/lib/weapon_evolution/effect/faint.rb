@@ -5,10 +5,9 @@ class Faint
     args.each do |key, value|
       self.instance_variable_set("@#{key}", value) unless value.nil?
     end
-    @is_on = true
   end
 
-  def calculate player, &block
+  def calculate player, enemy, &block
     @effect_round_left -= 1
     if effect_round_left <= 0
       player.to_normal

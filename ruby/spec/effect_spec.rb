@@ -29,4 +29,19 @@ describe "Effect" do
     person.attack(solider).should eq "张三受到2点毒性伤害, 张三剩余生命：18\n普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：14"
     person.attack(solider).should eq "张三受到2点毒性伤害, 张三剩余生命：16\n普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：8"
   end
+
+  it "should reduce health each round when I on fire" do
+    person.effect = OnFire.new
+    person.attack(solider).should eq "张三受到2点火焰伤害, 张三剩余生命：18\n普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：14"
+    person.attack(solider).should eq "张三受到2点火焰伤害, 张三剩余生命：16\n普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：8"
+  end
+
+  it "should reduce health each round when I on fire" do
+    frozen_effect = Frozen.new effect_round_left: 2
+    frozen_effect.round_before_trigger=2
+    person.effect = frozen_effect
+    person.attack(solider).should eq "普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：14"
+    person.attack(solider).should eq "普通人张三攻击了战士李四,李四受到了6点伤害,李四剩余生命：8"
+    person.attack(solider).should eq "张三冻得直哆嗦，没有击中李四"
+  end
 end

@@ -1,6 +1,6 @@
 class NoEffect
 
-  def calculate player, &block
+  def calculate player, enemy, &block
     block.call
   end
 
