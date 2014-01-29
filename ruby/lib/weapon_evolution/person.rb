@@ -48,9 +48,10 @@ class Person
 
   protected
   def build_formatted_attack_string(enemy, harm_point)
+    trigger_string = enemy.weapon.trigger self if defined?(enemy.weapon) && !enemy.weapon.nil?
     "#{enemy.job}#{enemy.name}" <<
         "#{"用"+ enemy.weapon.name if defined?(enemy.weapon) && !enemy.weapon.nil?}" <<
-        "攻击了#{job}#{@name},#{@name}受到了#{harm_point}点伤害,#{@name}剩余生命：#{@hp}"
+        "攻击了#{job}#{@name},#{@name}受到了#{harm_point}点伤害,#{trigger_string + "," if not trigger_string.nil?}#{@name}剩余生命：#{@hp}"
   end
 
 end

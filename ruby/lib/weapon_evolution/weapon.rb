@@ -1,5 +1,5 @@
 class Weapon
-  attr_accessor :name, :attack_point
+  attr_accessor :name, :attack_point, :effect
 
   def initialize args = {}
     args.each do |key, value|
@@ -7,4 +7,7 @@ class Weapon
     end
   end
 
+  def trigger enemy
+    @effect.trigger enemy if @effect
+  end
 end
