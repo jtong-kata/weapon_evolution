@@ -14,10 +14,10 @@ describe "Person" do
     lisi.attack(zhangsan).should eq "普通人李四攻击了普通人张三,张三受到了9点伤害,张三剩余生命：1"
   end
 
-  it "should return final result when someone has been dead" do
+  it "should not return final result when someone has been dead" do
     lisi.attack(zhangsan)
     final_result = lisi.attack(zhangsan)
-    final_result.should eq "普通人李四攻击了普通人张三,张三受到了9点伤害,张三剩余生命：-8\n张三被打败了"
+    final_result.should eq "普通人李四攻击了普通人张三,张三受到了9点伤害,张三剩余生命：-8"
   end
 
 end

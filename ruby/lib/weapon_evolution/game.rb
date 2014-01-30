@@ -3,6 +3,8 @@ class Game
     puts player_a.attack player_b
     if player_b.hp > 0
       fight_between player_b, player_a
+    else
+      puts "#{player_b.name}被打败了"
     end
 
   end

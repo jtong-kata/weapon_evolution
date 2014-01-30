@@ -35,11 +35,7 @@ class Person
   def be_attacked_by enemy
     harm_point = harm_point(enemy)
     @hp -= harm_point
-    result = build_formatted_attack_string(enemy, harm_point)
-    if hp <= 0
-      result << "\n#{@name}被打败了"
-    end
-    result
+    build_formatted_attack_string(enemy, harm_point)
   end
 
   def harm_point(enemy)
