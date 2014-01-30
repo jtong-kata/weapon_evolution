@@ -13,4 +13,8 @@ class Poison
     result = "#{player.name}受到#{@effect_harm}点毒性伤害, #{player.name}剩余生命：#{player.hp}\n"
     result << block.call
   end
+
+  def trigger player
+    "#{player.name}中毒了"
+  end
 end

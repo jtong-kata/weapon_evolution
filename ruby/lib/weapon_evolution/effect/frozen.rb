@@ -27,4 +27,8 @@ class Frozen
       block.call
     end
   end
+
+  def trigger player
+    "#{player.name}冻僵了"
+  end
 end

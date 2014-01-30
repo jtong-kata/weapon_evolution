@@ -13,4 +13,8 @@ class OnFire
     result = "#{player.name}受到#{@effect_harm}点火焰伤害, #{player.name}剩余生命：#{player.hp}\n"
     result << block.call
   end
+
+  def trigger player
+    "#{player.name}着火了"
+  end
 end
