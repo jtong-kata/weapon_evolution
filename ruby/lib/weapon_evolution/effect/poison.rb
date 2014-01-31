@@ -14,7 +14,7 @@ class Poison
     result << block.call
   end
 
-  def trigger player
-    "#{player.name}中毒了"
+  def trigger enemy, me
+    "#{enemy.name}中毒了"
   end
 end

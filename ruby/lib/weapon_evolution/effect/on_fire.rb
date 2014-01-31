@@ -14,7 +14,7 @@ class OnFire
     result << block.call
   end
 
-  def trigger player
-    "#{player.name}着火了"
+  def trigger enemy,me
+    "#{enemy.name}着火了"
   end
 end

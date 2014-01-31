@@ -1,5 +1,4 @@
-class Weapon
-  attr_accessor :name, :attack_point, :effect
+class GreatHarm
 
   def initialize args = {}
     args.each do |key, value|
@@ -7,7 +6,11 @@ class Weapon
     end
   end
 
+  def calculate player, enemy, &block
+    block.call
+  end
+
   def trigger enemy, me
-    @effect.trigger enemy, me if @effect
+    "#{me.name}发动了致命一击"
   end
 end

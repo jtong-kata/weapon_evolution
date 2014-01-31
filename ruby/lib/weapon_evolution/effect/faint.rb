@@ -15,7 +15,7 @@ class Faint
     "#{player.name}晕倒了，无法攻击, 眩晕还剩：#{ @effect_round_left }轮"
   end
 
-  def trigger player
-    "#{player.name}晕倒了"
+  def trigger enemy,me
+    "#{enemy.name}晕倒了"
   end
 end

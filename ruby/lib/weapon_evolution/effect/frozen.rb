@@ -28,7 +28,7 @@ class Frozen
     end
   end
 
-  def trigger player
-    "#{player.name}冻僵了"
+  def trigger enemy, me
+    "#{enemy.name}冻僵了"
   end
 end

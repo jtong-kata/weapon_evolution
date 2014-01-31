@@ -28,4 +28,10 @@ describe "Effect Trigger" do
     effect_weapon.effect = OnFire.new
     solider.attack(person).should eq "战士李四用带效果的兵器攻击了普通人张三,张三受到了8点伤害,张三着火了,张三剩余生命：12"
   end
+
+  it "should print format string on trigger great harm effect" do
+    effect_weapon.effect = GreatHarm.new
+    solider.attack(person).should eq "战士李四用带效果的兵器攻击了普通人张三,李四发动了致命一击,张三受到了24点伤害,张三剩余生命：-4"
+
+  end
 end
