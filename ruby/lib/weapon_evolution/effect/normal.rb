@@ -4,4 +4,7 @@ class NoEffect
     block.call
   end
 
+  def trigger enemy, me
+    nil
+  end
 end

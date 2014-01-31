@@ -5,9 +5,10 @@ class Weapon
     args.each do |key, value|
       self.instance_variable_set("@#{key}", value) unless value.nil?
     end
+    @effect = NoEffect.new
   end
 
   def trigger enemy, me
-    @effect.trigger enemy, me if @effect
+    @effect.trigger enemy, me
   end
 end
