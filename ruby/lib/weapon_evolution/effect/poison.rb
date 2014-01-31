@@ -1,5 +1,6 @@
 class Poison
   attr_accessor :effect_harm
+  include KeepingEffect
 
   def initialize args = {}
     args.each do |key, value|
@@ -14,7 +15,8 @@ class Poison
     result << block.call
   end
 
-  def trigger enemy, me
+  def trigger enemy
     "#{enemy.name}中毒了"
   end
+
 end

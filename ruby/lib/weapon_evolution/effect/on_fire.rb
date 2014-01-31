@@ -1,5 +1,6 @@
 class OnFire
   attr_accessor :effect_harm
+  include KeepingEffect
 
   def initialize args = {}
     args.each do |key, value|
@@ -14,7 +15,7 @@ class OnFire
     result << block.call
   end
 
-  def trigger enemy,me
+  def trigger enemy
     "#{enemy.name}着火了"
   end
 end

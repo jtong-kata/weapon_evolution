@@ -8,7 +8,8 @@ class Weapon
     @effect = NoEffect.new
   end
 
-  def trigger enemy, me
-    @effect.trigger enemy, me
+
+  def build_harm_format_string(enemy, me, harm_point)
+    @effect.build_harm_string enemy, me, harm_point
   end
 end

@@ -53,16 +53,16 @@ class Person
 
   def build_harm_string(enemy)
     harm_point = harm_point(enemy)
-    trigger_string = enemy.weapon.trigger self,enemy if defined?(enemy.weapon) && !enemy.weapon.nil?
-    if !trigger_string.nil? && trigger_string.include?("致命")
-      harm_point *= 3
-      @hp -= harm_point
-      "#{trigger_string},#{@name}受到了#{harm_point}点伤害,"
+    if defined?(enemy.weapon) && !(enemy.weapon.nil?)
+      enemy.weapon.build_harm_format_string(enemy, self, harm_point)
     else
-      @hp -= harm_point
-      "#{@name}受到了#{harm_point}点伤害,#{trigger_string + "," if not trigger_string.nil?}"
+      be_harmed harm_point
+      "#{name}受到了#{harm_point}点伤害,"
     end
+
   end
+
+
 
 
 end

@@ -1,5 +1,6 @@
 class Frozen
   attr_accessor :effect_round_left, :round_before_trigger
+  include KeepingEffect
 
   def initialize args = {}
     args.each do |key, value|
@@ -28,7 +29,7 @@ class Frozen
     end
   end
 
-  def trigger enemy, me
+  def trigger enemy
     "#{enemy.name}冻僵了"
   end
 end

@@ -1,4 +1,5 @@
 require "weapon_evolution/version"
+require "weapon_evolution/effect/keeping_effect"
 require "weapon_evolution/effect/normal"
 require "weapon_evolution/effect/faint"
 require "weapon_evolution/effect/frozen"

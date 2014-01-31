@@ -1,5 +1,6 @@
 class Faint
   attr_accessor :effect_round_left
+  include KeepingEffect
 
   def initialize args = {}
     args.each do |key, value|
@@ -15,7 +16,7 @@ class Faint
     "#{player.name}晕倒了，无法攻击, 眩晕还剩：#{ @effect_round_left }轮"
   end
 
-  def trigger enemy,me
+  def trigger enemy
     "#{enemy.name}晕倒了"
   end
 end
