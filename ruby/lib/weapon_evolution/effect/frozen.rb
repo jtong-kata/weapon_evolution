@@ -23,6 +23,6 @@ class Frozen < Effect
   end
 
   def trigger enemy
-    "#{enemy.name}冻僵了"
+    "#{enemy.name}冻僵了,"
   end
 end

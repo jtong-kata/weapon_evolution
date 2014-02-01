@@ -10,6 +10,6 @@ class Faint < Effect
   end
 
   def trigger enemy
-    "#{enemy.name}晕倒了"
+    "#{enemy.name}晕倒了,"
   end
 end

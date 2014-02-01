@@ -13,7 +13,7 @@ class Poison < Effect
   end
 
   def trigger enemy
-    "#{enemy.name}中毒了"
+    "#{enemy.name}中毒了,"
   end
 
 end

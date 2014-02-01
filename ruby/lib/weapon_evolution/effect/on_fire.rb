@@ -13,6 +13,6 @@ class OnFire < Effect
   end
 
   def trigger enemy
-    "#{enemy.name}着火了"
+    "#{enemy.name}着火了,"
   end
 end
