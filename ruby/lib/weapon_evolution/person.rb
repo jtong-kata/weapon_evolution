@@ -1,10 +1,12 @@
 class Person
   attr_accessor :name, :hp, :attack_point, :effect
+  attr_reader :weapon
 
   def initialize args = {}
     args.each do |key, value|
       self.instance_variable_set("@#{key}", value) unless value.nil?
     end
+    @weapon = NoWeapon.new
     @normal_effect = NoEffect.new
     to_normal
   end
@@ -42,24 +44,17 @@ class Person
 
   protected
   def build_formatted_attack_string(enemy)
+    source_desc = "#{enemy.job}#{enemy.name}"
+    target_desc = "#{job}#{@name}"
 
-    attack_string = "#{enemy.job}#{enemy.name}" <<
-        "#{"用"+ enemy.weapon.name if defined?(enemy.weapon) && !enemy.weapon.nil?}攻击了#{job}#{@name},"
-    harm_string = build_harm_string(enemy)
+    attack_string = enemy.weapon.build_attack_string source_desc, target_desc
 
-    attack_string << harm_string <<
-        "#{@name}剩余生命：#{@hp}"
+    attack_string << build_harm_string(enemy) << "#{@name}剩余生命：#{@hp}"
   end
 
   def build_harm_string(enemy)
     harm_point = harm_point(enemy)
-    if defined?(enemy.weapon) && !(enemy.weapon.nil?)
-      enemy.weapon.build_harm_format_string(enemy, self, harm_point)
-    else
-      be_harmed harm_point
-      "#{name}受到了#{harm_point}点伤害,"
-    end
-
+    enemy.weapon.build_harm_string(enemy, self, harm_point)
   end
 
 
