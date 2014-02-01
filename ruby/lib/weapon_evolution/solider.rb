@@ -7,9 +7,7 @@ class Solider < Person
 
   def initialize args = {}
     @weapon = NoWeapon.new
-    args.each do |key, value|
-      self.instance_variable_set("@#{key}", value) unless value.nil?
-    end
+    init_by args
     @normal_effect = NoEffect.new
     to_normal
   end

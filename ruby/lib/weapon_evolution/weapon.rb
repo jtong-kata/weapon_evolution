@@ -1,12 +1,11 @@
 class Weapon
   attr_accessor :name, :attack_point, :effect
-  include AttackStringBuilder
+  include AttackStringBuilder, AttributeInitializer
+
 
   def initialize args = {}
     @effect = NoEffect.new
-    args.each do |key, value|
-      self.instance_variable_set("@#{key}", value) unless value.nil?
-    end
+    init_by args
   end
 
 

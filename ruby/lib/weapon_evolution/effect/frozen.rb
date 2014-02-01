@@ -1,13 +1,6 @@
-class Frozen
+class Frozen < Effect
   attr_accessor :effect_round_left, :round_before_trigger
-  include KeepingEffect
 
-  def initialize args = {}
-    args.each do |key, value|
-      self.instance_variable_set("@#{key}", value) unless value.nil?
-    end
-
-  end
 
   def round_before_trigger= round
     @round_before_trigger = round

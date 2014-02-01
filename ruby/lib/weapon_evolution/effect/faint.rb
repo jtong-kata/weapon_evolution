@@ -1,12 +1,5 @@
-class Faint
+class Faint < Effect
   attr_accessor :effect_round_left
-  include KeepingEffect
-
-  def initialize args = {}
-    args.each do |key, value|
-      self.instance_variable_set("@#{key}", value) unless value.nil?
-    end
-  end
 
   def calculate player, enemy, &block
     @effect_round_left -= 1

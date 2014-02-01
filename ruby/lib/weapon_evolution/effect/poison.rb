@@ -1,11 +1,8 @@
-class Poison
+class Poison < Effect
   attr_accessor :effect_harm
-  include KeepingEffect
 
   def initialize args = {}
-    args.each do |key, value|
-      self.instance_variable_set("@#{key}", value) unless value.nil?
-    end
+    super args
     @effect_harm = 2
   end
 

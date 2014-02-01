@@ -2,10 +2,10 @@ class Person
   attr_accessor :name, :hp, :attack_point, :effect
   attr_reader :weapon
 
+  include AttributeInitializer
+
   def initialize args = {}
-    args.each do |key, value|
-      self.instance_variable_set("@#{key}", value) unless value.nil?
-    end
+    init_by args
     @weapon = NoWeapon.new
     @normal_effect = NoEffect.new
     to_normal
