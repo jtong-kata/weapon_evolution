@@ -8,7 +8,7 @@ class Solider < Person
   def initialize args = {}
     @weapon = NoWeapon.new
     init_by args
-    @normal_effect = NoEffect.new
+    @normal_effect = Normal.new
     to_normal
   end
 

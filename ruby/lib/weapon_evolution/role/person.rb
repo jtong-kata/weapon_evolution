@@ -1,5 +1,5 @@
 class Person
-  attr_accessor :name, :hp, :attack_point, :effect
+  attr_accessor :name, :hp, :attack_point, :status
   attr_reader :weapon
 
   include AttributeInitializer
@@ -7,7 +7,7 @@ class Person
   def initialize args = {}
     init_by args
     @weapon = NoWeapon.new
-    @normal_effect = NoEffect.new
+    @normal_effect = Normal.new
     to_normal
   end
 
@@ -16,13 +16,13 @@ class Person
   end
 
   def attack enemy
-    @effect.calculate self, enemy do
+    @status.calculate self, enemy do
       enemy.be_attacked_by self
     end
   end
 
   def to_normal
-    @effect = @normal_effect
+    @status = @normal_effect
   end
 
   def be_harmed harm

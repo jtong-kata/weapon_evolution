@@ -1,4 +1,4 @@
-class NoEffect < Effect
+class Normal < Effect
 
   def calculate player, enemy, &block
     block.call

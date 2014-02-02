@@ -4,10 +4,9 @@ class Weapon
 
 
   def initialize args = {}
-    @effect = NoEffect.new
+    @effect = Normal.new
     init_by args
   end
-
 
   def build_attack_string source_desc, target_desc
     source_desc <<

@@ -1,10 +1,10 @@
 class NoWeapon
-  attr_reader :attack_point
+  attr_reader :attack_point, :effect
 
   include AttackStringBuilder
 
   def initialize
-    @effect = NoEffect.new
+    @effect = Normal.new
     @attack_point = 0
   end
 

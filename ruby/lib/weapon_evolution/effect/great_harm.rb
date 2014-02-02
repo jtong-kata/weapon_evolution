@@ -6,8 +6,13 @@ class GreatHarm < Effect
   end
 
   def build_harm_string enemy, me, harm_point
-    harm_point *= 3
-    me.be_harmed harm_point
-    "#{trigger enemy}" << be_hurt_string(me.name, harm_point)
+    trigger_handler = lambda do
+      harm_point *= 3
+      me.be_harmed harm_point
+      "#{trigger enemy}" << be_hurt_string(me.name, harm_point)
+    end
+
+    trigger_randomly trigger_handler, not_triggered(harm_point, me)
+
   end
 end
